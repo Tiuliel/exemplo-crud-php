@@ -25,7 +25,10 @@ $quantidade = count($listaDeFabricantes);
 
     <p><a href="inserir.php">
         Inserir novo fabricante</a></p>
-
+<!-- Feedback/mensagem para o usuário indicado que o processo deu certo -->
+<?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso"){?>
+    <h2 style="color: blue;">Fabricante atualizado com sucesso!</h2>
+<?php } ?>
     
     <table>
         <caption>Lista de Fabricantes: <b><?=$quantidade?></b></caption>
