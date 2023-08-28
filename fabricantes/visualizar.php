@@ -5,7 +5,7 @@ require_once "../src/funcoes-fabricantes.php";
 /* Guardando o retorno/resultado da função lerFabricantes */
 $listaDeFabricantes = lerFabricantes($conexao);
 
-/*Contando quantos fabricantes temos na matriz $listaDeFabricantes */
+/* Contando quantos fabricantes temos na matriz $listaDeFabricantes */
 $quantidade = count($listaDeFabricantes);
 ?>
 <!DOCTYPE html>
@@ -25,11 +25,14 @@ $quantidade = count($listaDeFabricantes);
 
     <p><a href="inserir.php">
         Inserir novo fabricante</a></p>
-<!-- Feedback/mensagem para o usuário indicado que o processo deu certo -->
-<?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso"){?>
-    <h2 style="color: blue;">Fabricante atualizado com sucesso!</h2>
-<?php } ?>
+
     
+    <!-- Feedback/Mensagem para o usuário indicando que o 
+    processo deu certo. -->
+    <?php if(isset($_GET["status"]) && $_GET["status"] === "sucesso"){ ?>
+        <h2 style="color:blue">Fabricante atualizado com sucesso!</h2>
+    <?php } ?>
+
     <table>
         <caption>Lista de Fabricantes: <b><?=$quantidade?></b></caption>
         <thead>
@@ -46,11 +49,12 @@ $quantidade = count($listaDeFabricantes);
                 <td> <?=$fabricante["id"]?>  </td>
                 <td> <?=$fabricante["nome"]?> </td>
                 <td>
-                    <!--  Link DINÂMICO
-                A URL do href precisa de parâmetro com dados
-            dinâmicos (no caso, o ID de cada fabricante) -->
-                    <a href="atualizar.php?id=<?=$fabricante["id"]?>">Editar</a>
-                    <a href="">Excluir</a>
+<!-- Link DINÂMICO
+A URL do href precisa de parâmetro com dados
+dinâmicos (no caso, o ID de cada fabricante) -->
+<a href="atualizar.php?id=<?=$fabricante["id"]?>">Editar</a>
+
+<a href="excluir.php?id=<?=$fabricante["id"]?>">Excluir</a>
                 </td>
             </tr>
 <?php } ?>
