@@ -1,3 +1,10 @@
+<?php
+require_once"../src/funcoes-produtos.php";
+require_once"../src/funcoes-utilitarias.php";
+$listaDeProdutos = lerProdutos($conexao);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -36,20 +43,15 @@
         Inserir novo produtos</a></p>
 
         <div class="produtos">
-
+<?php foreach($listaDeProdutos as $produto){
+    $preco = formataPreco($produto["preco"]);
+    ?>
         <article class="produto">
-            <h3>Nome do produto...</h3>
-            <p>Preço:.....</p>
-            <p>Quantidade:.....</p>
+            <h3><?=$produto["nome"]?></h3>
+            <p><b>Preço: </b><?=$preco?></p>
+            <p><b>Quantidade: </b><?=$produto["quantidade"]?> </p>
         </article>
-
-        <article class="produto">
-            <h3>Nome do produto...</h3>
-            <p>Preço:.....</p>
-            <p>Quantidade:.....</p>
-        </article>
-            
-
+        <?php }?>
         </div>
 </body>
 </html>
