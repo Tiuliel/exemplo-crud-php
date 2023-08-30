@@ -57,7 +57,11 @@ $listaDeProdutos = lerProdutos($conexao);
             <!-- 2) Fazer a conta direto na query SQL e pegar o resultado (coluna total) - além de passar -->
             <p><b>Total:</b> <?=formataPreco($produto["total"])?></p>
 
-            
+            <hr>
+            <p>
+            <a href="atualizar.php?id=<?=$produto["id"]?>">Editar</a> | 
+                <a href="excluir.php">Excluir</a>
+            </p>
         </article>
         <?php }?>
         </div>
